@@ -13,6 +13,11 @@ RSpec.describe Post, :type => :model do
       expect(post).to_not be_valid
     end
   
+    it 'cant be blank' do
+      post = Post.new(title: nil)
+      post.valid?
+      expect(post.erros[:title]).to include("can't be blank")
+    end
   end
 
   context "Post content validation" do
@@ -23,8 +28,8 @@ RSpec.describe Post, :type => :model do
     end
 
     it 'must be invalid' do
-        post = Posts.new(title: "Second Post <:[]")
-        expect(post).to_not be_valid
+      post = Posts.new(title: "Second Post <:[]")
+      expect(post).to_not be_valid
     end
     
   end
