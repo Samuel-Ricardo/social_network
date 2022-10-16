@@ -21,6 +21,11 @@ RSpec.describe Post, :type => :model do
         post = Post.new(title: "Second Post", content: 'Very Nice Content :D')
         expect(post).to be_valid
     end
+
+    it 'must be invalid' do
+        post = Posts.new(title: "Second Post <:[]")
+        expect(post).to_not be_valid
+    end
     
   end
 end
