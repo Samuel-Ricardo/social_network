@@ -14,4 +14,10 @@ RSpec.describe Post, :type => :model do
     end
   
   end
+
+  context "Post content validation" do
+
+
+    
+  end
 end
