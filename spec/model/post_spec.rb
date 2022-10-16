@@ -8,6 +8,10 @@ RSpec.describe Post, :type => :model do
       expect(post).to be_valid
     end
     
-
+    it "must be invalid" do
+      post = Post.new(content: 'Bad Content :D')
+      expect(post).to_not be_valid
+    end
+  
   end
 end
